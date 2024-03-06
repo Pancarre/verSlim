@@ -17,4 +17,8 @@ $app->get('/alunni/{name}', 'AlunniController:show');
 $app->get('/api/alunni', 'ApiAlunniController:index');
 $app->get('/api/alunni/{name}', 'ApiAlunniController:show');
 
+$app->post('/alunni', 'AlunniController:createAlunno');
+$app->put('/alunni/{name}', 'AlunniController:updateAlunno');
+$app->delete('/alunni{name}', 'AlunniController:deleteAlunno');
+
 $app->run();
