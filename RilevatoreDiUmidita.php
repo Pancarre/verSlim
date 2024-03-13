@@ -8,9 +8,9 @@
         private $tipologia;
 
 
-        function __construct($codiceSeriale,$tipologia){
+        function __construct($identificativo,$codiceSeriale,$tipologia){
             
-            parent::__construct("umidità", $codiceSeriale);
+            parent::__construct($identificativo, $codiceSeriale,"%");
             $this->tipologia = $tipologia;
 
         }
@@ -38,7 +38,7 @@
 
                 foreach($this->misurazioni as $data => $valore){
 
-                    $test = "data: " . $data . " $valore: " . $valore. "<br>";
+                    $test .="data: " . $data . " $valore: " . $valore. "<br>";
     
                 }
 

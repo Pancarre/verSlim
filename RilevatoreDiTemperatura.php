@@ -8,9 +8,9 @@
         private $posizione;
 
 
-        function __construct($codiceSeriale,$posizione){
+        function __construct($identificativo,$codiceSeriale,$posizione){
             
-            parent::__construct("temperatura", $codiceSeriale);
+            parent::__construct($identificativo, $codiceSeriale,"°C");
             $this->posizione = $posizione;
 
         }
@@ -38,7 +38,7 @@
 
                 foreach($this->misurazioni as $data => $valore){
 
-                    $test = "data: " . $data . " $valore: " . $valore. "<br>";
+                    $test .= "data: " . $data . " $valore: " . $valore. "<br>";
     
                 }
 

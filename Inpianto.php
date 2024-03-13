@@ -17,13 +17,60 @@
             $this->latitudine = "123";
             $this->longitudine = "456";
 
-            $a1 = new RilevatoreDiTemperatura("215543dasd","terra");
-            $a2 = new RilevatoreDiUmidita("25545thdf","acqua");
-            $a3 = new RilevatoreDiTemperatura("rget216usd","aria");
+            $a1 = new RilevatoreDiTemperatura("123","23","43ygf");
+            $a2 = new RilevatoreDiUmidita("25545thdf","432","t53tr");
+            $a3 = new RilevatoreDiUmidita("25545t5uytjhfrhdf","2534","4232");
+            $a4 = new RilevatoreDiTemperatura("rget216usd","214","tuy8h");
 
-            $this->rilevatori = array($a1,$a2,$a3);
+            $this->rilevatori = array($a1,$a2,$a3,$a4);
 
         }
+
+
+        function getRilevatore($str){
+            $array = array();
+            foreach($this->rilevatori as $r){
+
+                if(is_a($r,$str)){
+                    $array[] = $r;
+                }
+
+            }
+            $string="";
+
+            foreach($array as $a){
+
+                $string = $string . $a->toString();
+            }
+            return $string;
+        }
+
+        function getRilevatoreSpecifico($str,$id){
+            $array = array();
+            foreach($this->rilevatori as $r){
+
+                if(is_a($r,$str)){
+                    $array[] = $r;
+                }
+
+            }
+            foreach($array as $a){
+
+                if($a->getIdentificativo == $id){
+
+                    return $a->toString();
+
+                }
+
+                else{
+
+                    return "nessuno trovato";
+
+                }
+            }
+            
+        }
+
 
         function toString() {
 

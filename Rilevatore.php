@@ -9,22 +9,11 @@
         private $unitaDiMisura;
         private $codiceSeriale;
     
-        function __construct($identificativo,$codiceSeriale){
+        function __construct($identificativo,$codiceSeriale,$unitaDiMisura){
             
             $this->identificativo = $identificativo;
             $this->codiceSeriale = $codiceSeriale;
-
-            if($identificativo == "umidità"){
-
-                $this->unitaDiMisura = "%";
-
-            }
-
-            if($identificativo == "temperatura"){
-
-                $this->unitaDiMisura = "°C";
-
-            }
+            $this->unitaDiMisura = $unitaDiMisura;
 
             $this->addMisurazioni(strtotime("now"),123);
   
@@ -36,6 +25,13 @@
 
 
         }
+        
+        function getIdentificativo(){
+
+            return $this->identificativo;
+
+        }
+
         function setCodiceSeriale($str){
 
             $this->codiceSeriale = $str;
@@ -68,7 +64,7 @@
 
                 foreach($this->misurazioni as $data => $valore){
 
-                    $test = "data: " . $data . " valore: " . $valore. "<br>";
+                    $test .= "data: " . $data . " valore: " . $valore. "<br>";
     
                 }
 
